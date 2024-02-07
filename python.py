@@ -6,5 +6,5 @@ app = Flask(__name__)
 @app.route("/")
 def article():
     cislo = random.randint(1, 10)
-    return render_template("html.html", cislo)
+    return render_template("html.html", cislo = cislo)
     

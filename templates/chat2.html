@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Random nadpis</h1>
+<p>LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL</p>
+
+<p> Nahodné číslo je: {{cislo}}</p>
+
+<!-- Formulář pro nahrání obrázků -->
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <label for="files">Vyberte obrázky:</label>
+    <input type="file" name="files" id="files" multiple>
+    <input type="submit" value="Nahrát obrázky">
+</form>
+
+<!-- Zobrazit nahrané obrázky -->
+{% if image_filenames %}
+    {% for image_filename in image_filenames %}
+        <img src="{{ url_for('static', filename='uploads/' + image_filename) }}" alt="Nahraný obrázek">
+    {% endfor %}
+{% endif %}
+
+</body>
+</html>
